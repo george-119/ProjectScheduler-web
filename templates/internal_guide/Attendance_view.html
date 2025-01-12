@@ -1,0 +1,41 @@
+{% extends 'Internal_guide/general.html' %}
+{% block body%}
+<form name="form1" method="post" action="/int_guide_attandance_view_post">
+<table class="table table-bordered" style="width: 400px;" align="center">
+    <tr>
+        <td>GROUP NAME</td>
+        <td>
+            <select name="select" id="select" class="form-control">
+                {% for i in d %}
+                    <option value="{{ i[0] }}">{{ i[1] }}</option>
+                {% endfor %}
+            </select>
+        </td>
+        <td>
+            <input type="submit" class="btn btn-success" value="View">
+        </td>
+    </tr>
+</table>
+<br>
+  <table class="table table-bordered">
+  <tr>
+    <th>SL NO</th>
+    <th>EXTERNAL ORGANISATION NAME</th>
+    <th>DATE</th>
+    <th>MEMBERS</th>
+    <th>ATTENDANCE FILE</th>
+  </tr>
+      {% for i in s %}
+  <tr>
+    <td>{{ loop.index }}</td>
+    <td>{{ i[2] }}</td>
+    <td>{{ i[1] }}</td>
+    <td><a href="/intguide_grp_assign_view/{{ i[3] }}" class="btn btn-warning">Members</a></td>
+    <td><a href="{{ i[0] }}" download class="btn btn-info">Download</a></td>
+  </tr>
+      {% endfor %}
+  </table>
+</form>
+{% endblock %}
+
+

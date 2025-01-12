@@ -1,0 +1,47 @@
+{% extends 'admin/general.html' %}
+{% block body%}
+<body>
+<form name="form1" method="post" action="/admin_group_update_post">
+  <table class="table table-bordered" style="width:500px;" align="center">
+    <tr>
+      <td>Project Name<input type="hidden" name="lid" value="{{ loginid }}"></td>
+      <td>
+      <input type="text" name="textfield" id="textfield" value="{{ name }}" class="form-control" required></td>
+    </tr>
+    <tr>
+      <td>Member Count</td>
+      <td>
+      <input type="text" name="textfield2" id="textfield2" value="{{ count }}" class="form-control" required></td>
+    </tr>
+{#    <tr>#}
+{#      <td>Email</td>#}
+{#      <td><label for="textfield3"></label>#}
+{#      <input type="text" name="textfield7" id="textfield7" value="{{ email }}"></td>#}
+{#    </tr>  #}
+    <tr>
+      <td>Language</td>
+      <td>
+      <input type="text" name="textfield3" id="textfield3" value="{{ laguage }}" class="form-control" required></td>
+    </tr>
+    <tr>
+      <td>Batch</td>
+      <td>
+      <input type="text" name="textfield4" id="textfield4" value="{{ batch }}" class="form-control" required></td>
+    </tr>
+    <tr>
+      <td>Status</td>
+      <td>
+      <input type="text" name="textfield5" id="textfield5" value="{{ status }}" class="form-control" required></td>
+    </tr>
+    <tr>
+      <td> Date</td>
+      <td>
+      <input type="date" name="textfield6" id="textfield6" value="{{ date }}" class="form-control" required></td>
+    </tr>
+    <tr>
+      <td colspan="2" align="center"><input type="submit" class="btn btn-success" name="button" id="button" value="UPDATE"></td>
+    </tr>
+  </table>
+</form>
+</body>
+{% endblock %}

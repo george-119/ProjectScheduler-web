@@ -1,0 +1,30 @@
+{% extends 'admin/general.html' %}
+{% block body%}
+<body>
+<form action="/admin_internal_assing_edit_post" method="post" enctype="multipart/form-data" name="form1">
+      <table class="table table-bordered" style="width:500px;" align="center">
+    <tr>
+      <td>Internal Guide Id</td>
+      <td>
+        <select name="select" id="select2" class="form-control">
+        <option>--select--</option>
+            {% for i in a %}
+                <option value="{{ i[1] }}" {% if i[1] == d[1] %} selected {% endif %}>{{ i[0] }}</option>{% endfor %}
+        </select></td>
+    </tr>
+    <tr>
+      <td>Group </td>
+      <td>
+        <select name="select2" id="select3" class="form-control">
+        <option>--select--</option>
+            {% for i in b %}
+                <option value="{{ i[1] }}" {% if i[1]==d[2] %} selected {% endif %}>{{ i[0] }}</option>{% endfor %}
+        </select></td>
+    </tr>
+    <tr>
+      <td colspan="2" align="center"><input type="submit" class="btn btn-success" name="button" id="button" value="update"></td>
+    </tr>
+  </table>
+</form>
+</body>
+{% endblock %}

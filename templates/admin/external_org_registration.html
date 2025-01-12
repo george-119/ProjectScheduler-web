@@ -1,0 +1,58 @@
+{% extends 'admin/general.html' %}
+{% block body%}
+<body>
+<center>
+<form name="form1" method="post" action="/admin_external_org_reg_post">
+  <table class="table table-bordered" style="width:500px;" align="center">
+    <tr>
+      <td>Name</td>
+      <td>
+      <input class="form-control" required type="text" name="textfield" id="textfield"></td>
+    </tr>
+    <tr>
+      <td>Place</td>
+      <td>
+      <input type="text" name="textfield2" id="textfield2" class="form-control" required></td>
+    </tr>
+    <tr>
+      <td>Phone</td>
+      <td>
+      <input type="text" name="textfield9" id="textfield9" class="form-control" required pattern="[6789][0123456789]{9}" maxlength="10"></td>
+    </tr>
+    <tr>
+      <td>Pin</td>
+      <td>
+      <input type="text" name="textfield3" id="textfield3" class="form-control" required pattern="[123456789][0123456789]{5}" maxlength="6"></td>
+    </tr>
+    <tr>
+      <td>Website</td>
+      <td>
+      <input type="text" name="textfield4" id="textfield4"  class="form-control" required></td>
+    </tr>
+    <tr>
+      <td>Lattitude</td>
+      <td>
+      <input type="text" name="textfield5" id="textfield5" class="form-control" required></td>
+    </tr>
+    <tr>
+      <td>Longitude</td>
+      <td>
+      <input type="text" name="textfield6" id="textfield6" class="form-control" required></td>
+    </tr>
+    <tr>
+      <td>Email</td>
+      <td>
+      <input type="email" name="textfield7" id="textfield7" class="form-control" required></td>
+    </tr>
+{#    <tr>#}
+{#      <td>Password</td>#}
+{#      <td>#}
+{#      <input type="password" name="textfield8" id="textfield8" class="form-control" required></td>#}
+{#    </tr>#}
+    <tr>
+      <td colspan="2" align="center"><input type="submit" class="btn btn-success" name="button" id="button" value="REGISTER"></td>
+    </tr>
+  </table>
+</form></center>
+</body>
+{% endblock %}

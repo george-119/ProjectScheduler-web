@@ -1,0 +1,64 @@
+{% extends 'admin/general.html' %}
+{% block body%}
+<body>
+   <form name="form1" method="post" enctype="multipart/form-data" action="/admin_internal_guide_update_post">
+   <center>
+       <table class="table table-bordered" style="width:500px;">
+    <tr>
+      <td>Name <input type="hidden" name="lid" value="{{ loginid }}"></td>
+      <td>
+      <input type="text" name="textfield" id="textfield" value="{{ name }}" class="form-control" required></td>
+    </tr>
+{#    <tr>#}
+{#      <td>Email</td>#}
+{#      <td><label for="textfield2"></label>#}
+{#      <input type="text" name="textfield2" id="textfield2" value="{{ email }}"></td>#}
+{#    </tr>#}
+    <tr>
+      <td>Phone</td>
+      <td>
+      <input type="text" name="textfield3" id="textfield3" value="{{ phone }}"  class="form-control" required pattern="[6789][0123456789]{9}" maxlength="10"></td>
+    </tr>
+    <tr>
+      <td>Gender</td>
+      {% if gender=="male" %}
+      <td><input type="radio" name="radio" id="radio" value="male" checked="checked">
+      Male<br>
+        <input type="radio" name="radio" id="radio2" value="female">
+      Female</td>
+
+      {% elif gender=="female" %}
+      <td><input type="radio" name="radio" id="radio" value="male">
+      Male<br>
+        <input type="radio" name="radio" id="radio2" value="female" checked="checked">
+      Female</td>
+      {% else %}
+      <td><input type="radio" name="radio" id="radio" value="male">
+      <label for="radio">Male<br>
+        <input type="radio" name="radio" id="radio2" value="female">
+      Female</label></td>
+        {% endif %}
+    </tr>
+    <tr>
+      <td>Place</td>
+      <td>
+      <input type="text" name="textfield4" id="textfield4" value="{{ place }}" class="form-control" required></td>
+    </tr>
+    <tr>
+      <td>Pin</td>
+      <td>
+      <input type="text" name="textfield5" id="textfield5" value="{{ pin }}" pattern="[123456789][0123456789]{5}" maxlength="6" class="form-control" required></td>
+    </tr>
+    <tr>
+      <td>Pic</td>
+      <td>
+      <input type="file" name="image" id="textfield8" class="form-control" ></td>
+    </tr>
+    <tr>
+      <td colspan="2" align="center"><input type="submit" name="button" id="button" class="btn btn-success" value="EDIT"></td>
+    </tr>
+  </table>
+   </center>
+</form>
+</body>
+{% endblock %}

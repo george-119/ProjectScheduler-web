@@ -1,0 +1,52 @@
+{% extends 'admin/general.html' %}
+{% block body%}
+<body><center>
+<form name="form1" method="post" action="/admin_group_add_post">
+  <table class="table table-bordered" style="width:500px;" align="center">
+    <tr>
+      <td>Project Name</td>
+      <td>
+      <input type="text" name="textfield" id="textfield" class="form-control" required></td>
+    </tr>
+    <tr>
+      <td>Member Count</td>
+      <td>
+      <input type="text" name="textfield2" id="textfield2"  class="form-control" required></td>
+    </tr>
+     <tr>
+      <td>Email</td>
+      <td>
+      <input type="email" name="textfield7" id="textfield7" class="form-control" required></td>
+    </tr>
+{#     <tr>#}
+{#      <td>Password</td>#}
+{#      <td>#}
+{#      <input type="password" name="textfield8" id="textfield8" class="form-control" required></td>#}
+{#    </tr>#}
+    <tr>
+      <td>Language</td>
+      <td>
+      <input type="text" name="textfield3" id="textfield3" class="form-control" required></td>
+    </tr>
+    <tr>
+      <td>Batch</td>
+      <td>
+      <input type="text" name="textfield4" id="textfield4" class="form-control" required></td>
+    </tr>
+    <tr>
+      <td>Status</td>
+      <td>
+      <input type="text" name="textfield5" id="textfield5" class="form-control" required></td>
+    </tr>
+    <tr>
+      <td> Date</td>
+      <td>
+      <input type="date" name="textfield6" id="textfield6" class="form-control" required></td>
+    </tr>
+    <tr>
+      <td colspan="2" align="center"><input type="submit" class="btn btn-success" name="button" id="button" value="ADD"></td>
+    </tr>
+  </table>
+</form></center>
+</body>
+{% endblock %}

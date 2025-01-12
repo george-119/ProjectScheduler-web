@@ -1,0 +1,19 @@
+{% extends 'Internal_guide/general.html' %}
+{% block body%}
+<form name="form1" method="post" action="">
+   <table class="table table-bordered">
+  <tr>
+    <th>SL NO</th>
+    <th>BATCH</th>
+    <th>FILE</th>
+  </tr>
+      {% for i in d %}
+  <tr>
+    <td>{{loop.index}}</td>
+    <td>{{ i[2] }}</td>
+      <td><a href="{{ i[1] }}" class="btn btn-primary" download>Download</a></td>
+    </tr>
+      {% endfor %}
+  </table>
+</form>
+{% endblock %}

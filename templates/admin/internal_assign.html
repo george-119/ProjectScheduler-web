@@ -1,0 +1,24 @@
+{% extends 'admin/general.html' %}
+{% block body%}
+<body><center>
+<form action="/admin_internal_assign_post" method="post" enctype="multipart/form-data" name="form1">
+  <table class="table table-bordered" style="width:500px;" align="center">
+    <tr>
+      <td>Internal Guide Name</td>
+      <td>
+        <select name="select" id="select2" class="form-control">{% for i in a %}<option value="{{ i[1] }}">{{ i[0] }}</option>{% endfor %}
+        </select></td>
+    </tr>
+    <tr>
+      <td>Group </td>
+      <td>
+        <select name="select2" id="select3" class="form-control">{% for i in b %}<option value="{{ i[1] }}">{{ i[0] }}</option>{% endfor %}
+        </select></td>
+    </tr>
+    <tr>
+      <td colspan="2" align="center"><input type="submit" class="btn btn-success" name="button" id="button" value="ASSIGN"></td>
+    </tr>
+  </table>
+</form></center>
+</body>
+{% endblock %}

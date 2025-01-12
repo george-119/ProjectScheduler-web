@@ -1,0 +1,22 @@
+{% extends 'Internal_guide/general.html' %}
+{% block body%}
+<form name="form1" method="post" action="/int_guide_extorg_grp_assign_post">
+  <table class="table table-bordered" style="width: 400px;" align="center">
+    <tr>
+      <th>EXTERNAL ORGANISATION</th>
+     <td><select name="select" id="select" class="form-control">{% for i in a %}<option value="{{ i[0] }}">{{ i[1] }}</option>{% endfor %}
+          </select>
+        </td>
+    </tr>
+    <tr>
+      <th>GROUP NAME</th>
+     <td><select name="select2" id="select" class="form-control">{% for i in b %}<option value="{{ i[0] }}">{{ i[1] }}</option>{% endfor %}
+          </select>
+        </td>
+    </tr>
+    <tr>
+      <td colspan="2" align="center"><input class="btn btn-success" type="submit" value="ASSIGN"></td>
+    </tr>
+  </table>
+</form>
+{% endblock %}

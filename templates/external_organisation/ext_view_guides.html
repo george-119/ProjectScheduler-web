@@ -1,0 +1,38 @@
+{% extends 'external_organisation/general.html' %}
+{% block body%}
+<form name="form1" method="post" action="/ext_org_view_guides_post">
+<table class="pull-right">
+<tr>
+    <td>GROUP NAME</td>
+    <td><select name="select" id="select" class="form-control">
+    {% for i in d %}
+        <option value="{{ i[0] }}">{{ i[1] }}</option>
+    {% endfor %}
+    </select></td>
+    <td><input type="submit" value="View" class="btn btn-success"></td>
+</tr>
+</table>
+    <br>
+
+{% if v %}
+   <table class="table table-bordered">
+  <tr>
+    <th>NAME</th>
+    <th>EMAIL</th>
+    <th>PHONE</th>
+    <th>IMAGE</th>
+    <td></td>
+  </tr>
+  <tr>
+    <td>{{ v[1] }}</td>
+    <td>{{ v[2] }}</td>
+    <td>{{ v[3] }}</td>
+    <td><img src="{{ v[7] }}" height="100" width="100"/></td>
+    <td><a href="/ext_chat_guide/{{ v[8] }}" class="btn btn-warning">Chat</a></td>
+  </tr>
+  </table>
+
+{% endif %}
+</form>
+{% endblock %}
+

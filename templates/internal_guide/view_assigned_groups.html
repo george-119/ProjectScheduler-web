@@ -1,0 +1,51 @@
+{% extends 'internal_guide/general.html' %}
+{% block body%}
+<head>
+<title>Project Schedule view</title>
+</head>
+<center>
+<body>
+<form name="form1" method="post" action="/intguide_view_assgnd_grp_post">
+  <table class="pull-right">
+    <tr>
+        <td> Name</td>
+        <td>
+            <input type="text" class="form-control" name="textfield" id="textfield"></td>
+        <td>
+        <input type="submit" class="btn btn-success" name="button" id="button" value="Search"></td>
+    </tr>
+  </table>
+<br><br>
+<table class="table table-bordered">
+    <tr>
+      <th>SL NO</th>
+      <th>GROUP NAME</th>
+      <th>TOTAL MEMBERS</th>
+      <th>EMAIL</th>
+      <th>LANGUAGE</th>
+      <th>BATCH</th>
+      <th>STATUS</th>
+      <th>DATE</th>
+        <th>ORGANIZATION NAME</th>
+        <th></th>
+    </tr>
+    {% for i in d %}
+  <tr>
+    <td>{{ loop.index }}</td>
+    <td>{{ i[1] }}</td>
+    <td>{{ i[2] }}</td>
+    <td>{{ i[3] }}</td>
+    <td>{{ i[4] }}</td>
+    <td>{{ i[5] }}</td>
+    <td>{{ i[6] }}</td>
+    <td>{{ i[7] }}</td>
+      <td>{{ i[10] }}, {{ i[11] }}</td>
+    <td><a href="/intguide_grp_assign_view/{{ i[0] }}" class="btn btn-info">View Members</a></td>
+  </tr>
+    {% endfor %}
+  </table>
+</form>
+</body></center>
+{% endblock %}
+
+

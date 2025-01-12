@@ -1,0 +1,35 @@
+{% extends 'admin/general.html' %}
+{% block body%}
+<body><center>
+<form name="form1" method="post" action="">
+   <table class="table table-bordered">
+    <tr>
+      <th>SL NO</th>
+      <th>PROJECT NAME</th>
+      <th>MEMBER COUNT</th>
+      <th>EMAIL</th>
+      <th>LANGUAGE</th>
+      <th>BATCH</th>
+      <th>STATUS</th>
+      <th>DATE</th>
+      <th colspan="3">&nbsp;</th>
+    </tr>
+     {% for i in g %}
+    <tr>
+      <td>{{ loop.index }}</td>
+      <td>{{ i[1] }}</td>
+      <td>{{ i[2] }}</td>
+      <td>{{ i[3] }}</td>
+      <td>{{ i[4] }}</td>
+      <td>{{ i[5] }}</td>
+      <td>{{ i[6] }}</td>
+      <td>{{ i[7] }}</td>
+      <td><a href="/admin_group_edit/{{ i[8] }}" class="btn btn-info">Edit</a></td>
+      <td><a href="/admin_group_delete/{{ i[8] }}" class="btn btn-danger" onclick="return confirm('Are you sure?')">Delete</a></td>
+      <td><a href="/add_member_page_load/{{ i[8] }}" class="btn btn-warning">Add member</a></td>
+    </tr>
+      {% endfor %}
+  </table>
+</form></center>
+</body>
+{% endblock %}

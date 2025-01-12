@@ -1,0 +1,25 @@
+{% extends 'admin/general.html' %}
+{% block body%}
+<body><center>
+<form name="form1" method="post" action="">
+   <table class="table table-bordered">
+    <tr>
+      <th>SL NO</th>
+      <th>INTERNAL GUIDE NAME</th>
+      <th>GROUP NAME</th>
+      <th>&nbsp;</th>
+      <th>&nbsp;</th>
+    </tr>
+      {% for i in d %}
+    <tr>
+      <td>{{ loop.index }}</td>
+      <td>{{ i[1] }}</td>
+      <td>{{ i[4] }}</td>
+      <td><a href="/admin_internal_assign_edit/{{ i[2] }}" class="btn btn-info">EDIT</a></td>
+      <td><a href="/admin_intassing_delete/{{ i[2] }}" class="btn btn-danger" onclick="return confirm('Are you sure?')">DELETE</a></td>
+    </tr>
+      {% endfor %}
+  </table>
+</form></center>
+</body>
+{% endblock %}

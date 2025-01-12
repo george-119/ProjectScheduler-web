@@ -1,0 +1,33 @@
+{% extends 'admin/general.html' %}
+{% block body%}
+<body><center>
+<form name="form1" method="post" action="">
+   <table class="table table-bordered">
+    <tr>
+      <th>SL. NO</th>
+      <th>NAME</th>
+      <th>EMAIL</th>
+      <th>PHONE</th>
+      <th>GENDER</th>
+      <th>PLACE</th>
+      <th>PIN</th>
+      <th>&nbsp;</th>
+      <th>&nbsp;</th>
+    </tr>
+      {% for i in da %}
+    <tr>
+      <td>{{ loop.index }}</td>
+      <td align="center"><img src="{{ i[7] }}" height="100px" width="100px"><br>{{ i[1] }}</td>
+      <td>{{ i[2] }}</td>
+      <td>{{ i[3] }}</td>
+      <td>{{ i[4] }}</td>
+      <td>{{ i[5] }}</td>
+      <td>{{ i[6] }}</td>
+      <td><a href="/admin_internal_guide_edit/{{ i[8] }}" class="btn btn-info">Edit</a></td>
+      <td><a href="/admin_delete_internal_guide/{{ i[8] }}" class="btn btn-danger" onclick="return confirm('Are you sure?')">Delete</a></td>
+    </tr>
+      {% endfor %}
+  </table>
+</form></center>
+</body>
+{% endblock %}

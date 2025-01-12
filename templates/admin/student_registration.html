@@ -1,0 +1,60 @@
+{% extends 'admin/general.html' %}
+{% block body%}
+<body><center>
+<form action="/admin_student_reg_post" method="post" enctype="multipart/form-data" name="form1">
+  <table class="table table-bordered" style="width:500px;" align="center">
+    <tr>
+      <td>Name</td>
+      <td>
+      <input type="text" name="textfield" id="textfield" class="form-control" required></td>
+    </tr>
+    <tr>
+      <td>Place</td>
+      <td>
+      <input type="text" name="textfield2" id="textfield2" class="form-control" required></td>
+    </tr>
+    <tr>
+      <td>Pin</td>
+      <td>
+      <input type="text" name="textfield3" id="textfield3" pattern="[123456789][0123456789]{5}" maxlength="6" class="form-control" required></td>
+    </tr>
+    <tr>
+      <td>Phone</td>
+      <td>
+      <input type="text" name="textfield4" id="textfield4" pattern="[6789][0123456789]{9}" maxlength="10" class="form-control" required></td>
+    </tr>
+    <tr>
+      <td>Gender</td>
+      <td>
+        <input type="radio" name="radio" id="radio" value="male" checked>
+      Male<br>
+        <input type="radio" name="radio" id="radio2" value="female">
+      Female</td>
+    </tr>
+    <tr>
+      <td>Email(username)</td>
+      <td>
+      <input type="email" name="textfield6" id="textfield6" class="form-control" required></td>
+    </tr>
+    <tr>
+      <td>Photo</td>
+      <td>
+      <input type="file" name="fileField" id="fileField" class="form-control" required></td>
+    </tr>
+    <tr>
+      <td>Batch</td>
+      <td>
+      <input type="text" name="textfield8" id="textfield8"  class="form-control" required></td>
+    </tr>
+    <tr>
+      <td>Password</td>
+      <td>
+      <input type="password" name="textfield10" id="textfield10" class="form-control" required></td>
+    </tr>
+    <tr>
+      <td colspan="2" align="center"><input type="submit" class="btn btn-success" name="button" id="button" value="REGISTER"></td>
+    </tr>
+  </table>
+</form></center>
+</body>
+{% endblock %}

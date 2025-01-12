@@ -1,0 +1,21 @@
+{% extends 'external_organisation/general.html' %}
+{% block body%}
+<form name="form1" method="post" action="">
+   <table class="table table-bordered">
+  <tr>
+    <th>SL NO</th>
+    <th>BATCH</th>
+    <th>FILE</th>
+  </tr>
+      {% for i in d %}
+  <tr>
+    <td>{{ i[0] }}</td>
+    <td>{{ i[2] }}</td>
+      <td><a href="{{ i[1] }}" class="btn btn-info">Download</a></td>
+    </tr>
+      {% endfor %}
+  </table>
+</form>
+{% endblock %}
+
+

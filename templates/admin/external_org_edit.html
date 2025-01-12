@@ -1,0 +1,47 @@
+{% extends 'admin/general.html' %}
+{% block body%}
+<body>
+<form name="form1" method="post" action="/admin_ext_org_update_post">
+  <table class="table table-bordered" style="width:500px;" align="center">
+    <tr>
+      <td>Name<input type="hidden" name="lid" value="{{ loginid }}"></td>
+      <td>
+      <input type="text" name="textfield" id="textfield" value="{{ name }}" class="form-control" required></td>
+    </tr>
+    <tr>
+      <td>Place</td>
+      <td>
+      <input type="text" name="textfield2" id="textfield2" value="{{ place }}" class="form-control" required></td>
+    </tr>
+    <tr>
+      <td>Pin</td>
+      <td>
+      <input type="text" name="textfield3" id="textfield3" value="{{ pin }}" pattern="[123456789][0123456789]{5}" maxlength="6" class="form-control" required></td>
+    </tr>
+    <tr>
+      <td>Phone</td>
+      <td>
+      <input type="text" name="textfield9" id="textfield9" value="{{ phone }}" class="form-control" required pattern="[6789][0123456789]{9}" maxlength="10"></td>
+    </tr>
+    <tr>
+      <td>Website</td>
+      <td>
+      <input type="text" name="textfield4" id="textfield4" value="{{ web }}"  class="form-control" required></td>
+    </tr>
+    <tr>
+      <td>Lattitude</td>
+      <td>
+      <input type="text" name="textfield5" id="textfield5" value="{{ lat }}"  class="form-control" required></td>
+    </tr>
+    <tr>
+      <td>Longitude</td>
+      <td>
+      <input type="text" name="textfield6" id="textfield6" value="{{ long }}" class="form-control" required></td>
+    </tr>
+    <tr>
+      <td colspan="2" align="center"><input type="submit" class="btn btn-success" name="button" id="button" value="UPDATE"></td>
+    </tr>
+  </table>
+</form>
+</body>
+{% endblock %}

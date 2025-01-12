@@ -1,0 +1,24 @@
+{% extends 'Internal_guide/general.html' %}
+{% block body%}
+<form id="form1" name="form1" method="post" action="">
+   <table class="table table-bordered">
+  <tr>
+    <th>grpid</th>
+    <th>eoid</th>
+    <th>Group Name</th>
+    <th>Ext Org Name</th>
+    <th>Deletion</th>
+  </tr>
+    {% for i in d %}
+  <tr>
+    <td>&nbsp{{ i[8] }}</td>
+    <td>&nbsp;{{ i[9] }}</td>
+    <td>&nbsp;{{ i[0] }}</td>
+    <td>&nbsp;{{ i[10] }}</td>
+    <td><a href="#">Delete</a></td>
+  </tr>
+    {% endfor %}
+</table> 
+</form>
+{% endblock %}
+

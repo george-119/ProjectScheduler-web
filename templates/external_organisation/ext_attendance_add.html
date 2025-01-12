@@ -1,0 +1,25 @@
+{% extends 'external_organisation/general.html' %}
+{% block body%}
+<form id="form1" name="form1" method="post" action="/attendance_add" enctype="multipart/form-data">
+<table class="table table-bordered" style="width:400px;" align="center">
+    <tr>
+        <td>GROUP NAME</td>
+        <td>
+            <select name="select" id="select" class="form-control">
+                {% for i in d %}
+                    <option value="{{ i[0] }}">{{ i[1] }}</option>
+                {% endfor %}
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <td>ATTENDANCE FILE</td>
+        <td><input type="file" name="file1" id="file1" class="form-control" required/></td>
+    </tr>
+    <tr>
+        <td colspan="2" align="center"><input type="submit" value="ADD" class="btn btn-success"> </td>
+    </tr>
+</table>
+</form>
+</body>
+{% endblock %}

@@ -1,0 +1,106 @@
+{% extends 'admin/general.html' %}
+{% block body%}
+<body>
+<center>
+<form name="form1" method="post" action="/admin_attandance_post">
+  <table class="table table-bordered" style="width:500px;" align="center">
+    <tr>
+        <td>Batch</td>
+        <td>
+            <select name="batch" id="batch" class="form-control">
+                <option>Select</option>
+                {% for i in d %}
+                    <option value="{{ i[0] }}">{{ i[0] }}</option>
+                {% endfor %}
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <td>Project Name</td>
+        <td><select name="grp" id="grp" class="form-control">
+
+        </select></td>
+    </tr>
+{#      <tr>#}
+{#      <td>&nbsp;</td>#}
+{#      <td><input type="submit" name="button" id="button" value="View"></td>#}
+{#    </tr>#}
+  </table><br>
+  <table class="table table-bordered" id="t1">
+
+    {% for i in v %}
+    <tr>
+      <td>{{ i[6] }}</td>
+      <td>{{ i[0] }}</td>
+      <td>{{ i[4] }}</td>
+      <td>{{ i[5] }}</td>
+    </tr>
+    {% endfor %}
+  </table>
+</form></center>
+</body>
+
+<script src="/static/jquery.min.js"></script>
+<script>
+
+     $(document).ready(function () {
+
+        $("#batch").change(function () {
+            batch = $("#batch").val()
+            if(batch=="Select"){
+                alert("Choose batch")
+            } else {
+                $.ajax({
+                    url: '/ajax_grp_by_batch',
+                    type: 'post',
+                    data: {batch: batch},
+                    success: function (respons) {
+                        len = respons.length;
+                        $("#grp").empty();
+                        $("#grp").append('<option>Select</option>')
+                        for (var i = 0; i <= len; i++) {
+                            gid = respons[i]["loginid"]
+                            pname = respons[i]["projectname"]
+                            $("#grp").append('<option value=' + gid + '>' + pname + '</option>')
+                        }
+
+                    }, error: function (error) {
+
+                    }
+                });
+            }
+        });
+
+            $("#grp").change(function () {
+                grpid = $(this).val()
+                if(grpid=="Select"){
+                    alert("Choose Group")
+                } else {
+                    $.ajax({
+                        url: '/ajax_att_by_grp',
+                        type: 'post',
+                        data: {grpid: grpid},
+                        success: function (respons) {
+                            len = respons.length;
+                            $("#t1").empty();
+                            $("#t1").append('<tr><td>SL NO</td><td>EXTERNAL ORGANISATION NAME</td><td>DATE</td><td>ATTENDANCE FILE</td></tr>')
+                            for (var i = 0; i <= len; i++) {
+                                cnt = i + 1;
+                                org = respons[i]["orgname"] + " " + respons[i]["orgplace"]
+                                dt = respons[i]["date"]
+                                fl = respons[i]["file"]
+                                $("#t1").append('<tr><td>' + cnt + '</td><td>' + org + '</td><td>' + dt + '</td><td><a href="' + fl + '" download>Download</a></td></tr>')
+                            }
+
+                        }, error: function (error) {
+
+                        }
+
+                    });
+                }
+            });
+        });
+</script>
+{% endblock %}
+
+

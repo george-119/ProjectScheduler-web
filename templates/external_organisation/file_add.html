@@ -1,0 +1,28 @@
+{% extends 'external_organisation/general.html' %}
+{% block body%}
+<head>
+<title>Add File</title>
+</head>
+
+<body>
+<form id="form1" name="form1" method="post" action="/ext_org_add_file_post" enctype="multipart/form-data">
+<table class="table table-bordered" style="width:400px;" align="center">
+    <tr>
+        <td>GROUP</td>
+        <td><select name="select" id="select" class="form-control">
+    {% for i in d %}
+        <option value="{{ i[0] }}">{{ i[1] }}</option>
+    {% endfor %}
+    </select></td>
+    </tr>
+    <tr>
+        <td>FILE</td>
+        <td><input type="file" name="files" id="files" class="form-control" required/><br /></td>
+    </tr>
+    <tr>
+        <td colspan="2" align="center"><input type="submit" class="btn btn-success" value="ADD"></td>
+    </tr>
+</table>
+</form>
+</body>
+{% endblock %}

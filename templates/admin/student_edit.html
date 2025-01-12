@@ -1,0 +1,66 @@
+{% extends 'admin/general.html' %}
+{% block body%}
+<body>
+<form action="/admin_student_update_post" method="post" enctype="multipart/form-data" name="form1">
+  <table class="table table-bordered" style="width:500px;" align="center">
+    <tr>
+      <td>Name<input type="hidden" name="lid" value="{{ loginid }}"></td>
+      <td>
+      <input type="text" name="textfield" id="textfield" value="{{ name }}" class="form-control" required></td>
+    </tr>
+    <tr>
+      <td>Place</td>
+      <td>
+      <input type="text" name="textfield2" id="textfield2" value="{{ place }}" class="form-control" required></td>
+    </tr>
+    <tr>
+      <td>Pin</td>
+      <td>
+      <input type="text" name="textfield3" id="textfield3" value="{{ pin }}" class="form-control" required pattern="[123456789][0123456789]{5}" maxlength="6"></td>
+    </tr>
+    <tr>
+      <td>Phone</td>
+      <td>
+      <input type="text" name="textfield4" id="textfield4" value="{{ phone }}" class="form-control" required pattern="[6789][0123456789]{9}" maxlength="10"></td>
+    </tr>
+    <tr>
+      <td>Gender</td>
+      {% if gender == "male" %}
+      <td><input type="radio" name="radio" id="radio" value="male" checked="checked">
+      Male<br>
+        <input type="radio" name="radio" id="radio2" value="female">
+      Female</td>
+      {% elif gender == "female" %}
+      <td><input type="radio" name="radio" id="radio" value="male">
+      Male<br>
+        <input type="radio" name="radio" id="radio2" value="female" checked="checked">
+      Female</td>
+      {% else %}
+      <td><input type="radio" name="radio" id="radio" value="male">
+      <label for="radio">Male<br>
+        <input type="radio" name="radio" id="radio2" value="female">
+      Female</label></td>
+        {% endif %}
+    </tr>
+{#    <tr>#}
+{#      <td>Email</td>#}
+{#      <td><label for="textfield6"></label>#}
+{#      <input type="text" name="textfield6" id="textfield6"></td>#}
+{#    </tr>#}
+    <tr>
+      <td>Photo</td>
+      <td>
+      <input type="file" name="image" id="fileField"  class="form-control" ></td>
+    </tr>
+    <tr>
+      <td>Batch</td>
+      <td>
+      <input type="text" name="textfield8" id="textfield8" value="{{ batch }}"  class="form-control" required></td>
+    </tr>
+    <tr>
+      <td colspan="2" align="center"><input type="submit" class="btn btn-success" name="button" id="button" value="UPDATE"></td>
+    </tr>
+  </table>
+</form>
+</body>
+{% endblock %}

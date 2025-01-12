@@ -1,0 +1,65 @@
+{% extends 'external_organisation/general.html' %}
+{% block body %}
+<form id="form1" name="form1" method="post" action="/ext_chat_guide_post">
+    <center><h4><i>CHAT WITH INTERNAL GUIDE</i></h4></center><br>
+
+    <div class="col-md-12">
+<input type="hidden" id="hid" value="{{ toid }}">
+  <table class="table" style="width: 800px;" align="center">
+    <tr>
+      <th>Message</th>
+      <td><textarea name="ta" class="form-control" id="textarea" cols="45" rows="5" required></textarea></td>
+    </tr>
+    <tr>
+      <td align="center" colspan="2"><input type="submit" class="btn btn-success" name="SEnd" id="SEnd" value="Send" /></td>
+    </tr>
+  </table>
+  <p>&nbsp;</p>
+  <br />
+
+
+
+  <table id="tbl_msg" class="table table-bordered" style="width: 800px;" align="center">
+
+  </table>
+</div>
+<script src="/static/jquery.min.js"></script>
+    <script>
+    $(document).ready(function () {
+        var id,toid;
+        toid = document.getElementById("hid").value;
+        var ajax_call = function() {
+            $.ajax({
+                url: '/ext_chat_guide_chk',
+                type: 'post',
+                data: {idd: toid},
+                success: function (response) {
+                    console.log(response);
+                    $("#tbl_msg").empty();
+                    var ln = response.length;
+                    for (i = 0; i < ln; i++) {
+                        var id = response[i]["formid"];
+                        var date = response[i]["date"];
+                        var message = response[i]["message"];
+                        if (toid != id)    // outgoing message
+                        {
+                            $("#tbl_msg").append("<tr><td class='pull-right' style='width: 50%;background-color: #78CF8A;border-radius: 10px;'><div class='row'><div class='col-md-6'>ME</div><div class='col-md-6' align='right'>" + date + "</div><div class='col-md-12'><h4>" + message + "</h4></div></div></td></tr>");
+                        }
+                        if (toid == id)    // incoming message
+                        {
+                            $("#tbl_msg").append("<tr><td class='pull-left' style='width: 50%;background-color: #c3e6cb;border-radius: 10px;'><div class='row'><div class='col-md-6'>Other</div><div class='col-md-6' align='right'>" + date + "</div><div class='col-md-12'><h4>" + message + "</h4></div></div></td></tr>");
+                        }
+                    }
+                },
+                error: function (error) {
+                    console.log(error)
+                    alert("error   :   ", error)
+                }
+            });
+        };
+        var interval = 1000; // 1sec
+        setInterval(ajax_call, interval);
+    });
+</script>
+</form>
+{% endblock %}

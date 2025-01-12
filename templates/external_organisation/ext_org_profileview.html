@@ -1,0 +1,29 @@
+{% extends 'external_organisation/general.html' %}
+{% block body%}
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Profile</title>
+</head>
+<body>
+<form id="form1" name="form1" action="" method="post">
+   <table class="table table-bordered" style="width:400px;" align="center">
+    <tr>
+      <th>Organization Name</th>
+      <td>&nbsp;{{ d[1] }}</td>
+    </tr>
+    <tr>
+      <th>Place</th>
+      <td>&nbsp;{{ d[2] }}</td>
+    </tr>
+    <tr>
+      <th>Website</th>
+      <td>&nbsp;{{ d[5] }}</td>
+    </tr>
+    <tr>
+      <th>Pin</th>
+      <td>{{ d[3] }}</td>
+    </tr>
+  </table>
+</form>
+</body>
+{% endblock %}

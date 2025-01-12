@@ -1,0 +1,37 @@
+{% extends 'external_organisation/general.html' %}
+{% block body%}
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Progress Add</title>
+</head>
+
+<body>
+<form id="form1" name="form1" method="post" action="/ext_org_progress_add_post" enctype="multipart/form-data">
+<table class="table table-bordered" style="width:400px;" align="center">
+    <tr>
+        <td>GROUP NAME</td>
+        <td><select name="select" id="select" class="form-control" required>
+    {% for i in d %}
+        <option value="{{ i[0] }}">{{ i[1] }}</option>
+    {% endfor %}
+    </select></td>
+    </tr>
+<tr>
+    <td>FILE</td>
+    <td><input type="file" name="file1" id="file1" class="form-control" required/></td>
+</tr>
+<tr>
+    <td>PERCENTAGE</td>
+    <td><input type="text" name="textfield" class="form-control" required></td>
+</tr>
+<tr>
+    <td>Date</td>
+    <td><input type="date" name="textfield2" class="form-control" required></td>
+</tr>
+<tr>
+    <td colspan="2" align="center"><input type="submit" class="btn btn-success" value="ADD"></td>
+</tr>
+</table>
+</form>
+</body>
+{% endblock %}

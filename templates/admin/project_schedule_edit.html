@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="" method="post" enctype="multipart/form-data" name="form1">
+  <table class="table table-hover">
+    <tr>
+      <td>File</td>
+      <td><label for="fileField"></label>
+      <input type="file" name="fileField" id="fileField" value="{{ file }}"></td>
+    </tr>
+    <tr>
+      <td>Batch</td>
+      <td><label for="textfield"></label>
+        <label for="select"></label>
+        <select name="select" id="select">
+        <option value="{{ batch }}"></option>
+      </select></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td><input type="submit" name="button" id="button" value="UPDATE"></td>
+    </tr>
+  </table>
+</form>
+</body>
+</html>

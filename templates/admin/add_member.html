@@ -1,0 +1,39 @@
+{% extends 'admin/general.html' %}
+{% block body%}
+<body>
+<form name="form1" method="post" action="/member_add">
+  <table class="table table-bordered" style="width: 400px;" align="center">
+    <tr>
+      <td>Student</td>
+      <td>
+        <select name="select2" id="select3" class="form-control">
+            {% for i in d %}<option value="{{ i[1] }}">{{ i[0] }}</option>{% endfor %}
+      </select></td>
+    </tr>
+    <tr>
+      <td colspan="2" align="center"><input class="btn btn-success" type="submit" name="button" id="button" value="ADD"></td>
+    </tr>
+  </table>
+  <p>&nbsp;</p>
+  <table  class="table table-bordered" >
+    <tr>
+      <th>SL NO</th>
+      <th>NAME</th>
+      <th>IMAGE</th>
+      <th>EMAIL</th>
+      <td>&nbsp;</td>
+    </tr>
+      {% for i in name %}
+    <tr>
+      <td>{{ loop.index }}</td>
+      <td>{{ i[1] }}</td>
+      <td><img src="{{ i[3] }} " height="100px" width="100px"></td>
+      <td>{{ i[2] }}</td>
+      <td><a href="/admin_group_member_delete/{{ i[0] }}" class="btn btn-danger" onclick="return confirm('Are you sure?')">Delete</a></td>
+    </tr>
+      {% endfor %}
+  </table>
+  <p>&nbsp;</p>
+</form>
+</body>
+{% endblock %}

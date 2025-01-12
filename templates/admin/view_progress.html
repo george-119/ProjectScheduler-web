@@ -1,0 +1,35 @@
+{% extends 'admin/general.html' %}
+{% block body%}
+<body><center>
+<form name="form1" method="post" action="/admin_view_progress_post">
+  <table class="table table-bordered" style="width: 400px;" align="center">
+      <tr>
+          <td>BATCH</td>
+          <td><select name="grp" id="grp" class="form-control">{% for i in d %}<option value="{{ i[0] }}">{{ i[0] }}</option>{% endfor %}</select></td>
+      </tr>
+      <tr>
+      <td colspan="2" align="center"><input type="submit" class="btn btn-success" name="button" id="button" value="view"></td>
+    </tr>
+  </table>
+<br>
+<table class="table table-bordered">
+    <tr>
+      <th>SL NO</th>
+      <th>PROJECT NAME</th>
+      <th>DATE</th>
+      <th>PERCENTAGE</th>
+      <th></th>
+    </tr>
+  {% for i in c %}
+    <tr>
+      <td>&nbsp;{{ loop.index }}</td>
+      <td>&nbsp;{{ i[5] }} ( {{ i[6] }} )</td>
+      <td>&nbsp;{{ i[4] }}</td>
+      <td>&nbsp;{{ i[3] }}</td>
+      <td><a href="{{ i[2] }}" download>Download</a> </td>
+    </tr>
+  {% endfor %}
+  </table>
+</form></center>
+</body>
+{% endblock %}

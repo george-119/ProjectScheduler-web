@@ -1,0 +1,19 @@
+{% extends 'internal_guide/general.html' %}
+{% block body%}
+<form name="form1" method="post" action="">
+  <table class="table table-bordered" style="width: 400px;" align="center">
+    <tr>
+      <th>GROUP MEMBER NAME</th>
+      <th>PHOTO</th>
+      <th>STUDENT EMAIL</th>
+    </tr>
+      {% for i in d %}
+    <tr>
+      <td align="center">{{ i[0] }}</td>
+      <td><img src="{{ i[1] }}" height="100px" width="100px"></td>
+      <td>{{ i[3] }}</td>
+    </tr>
+      {% endfor %}
+  </table>
+</form>
+{% endblock %}

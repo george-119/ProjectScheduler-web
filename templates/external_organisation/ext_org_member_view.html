@@ -1,0 +1,21 @@
+{% extends 'external_organisation/general.html' %}
+{% block body%}
+<form name="form1" method="post" action="">
+   <table class="table table-bordered" align="center" style="width: 400px;">
+  <tr>
+    <th>NAME</th>
+    <th>IMAGE</th>
+    <th>BATCH</th>
+  </tr>
+      {% for i in d %}
+  <tr>
+    <td>{{ i[0] }}</td>
+    <td><img src="{{ i[1] }}" height="100px" width="100px"></td>
+    <td>{{ i[2] }}</td>
+  </tr>
+      {% endfor %}
+  </table>
+</form>
+{% endblock %}
+
+

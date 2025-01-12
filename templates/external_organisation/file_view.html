@@ -1,0 +1,44 @@
+{% extends 'external_organisation/general.html' %}
+{% block body%}
+<head>
+    <meta charset="UTF-8">
+    <title>Ext org | View file</title>
+</head><center>
+<body>
+<form name="form1" method="post" action="/ext_org_view_file_post">
+<table class="pull-right">
+    <tr>
+        <td>GROUP NAME</td>
+        <td>
+            <select name="select" id="select" class="form-control">
+                {% for i in d %}
+                    <option value="{{ i[0] }}">{{ i[1] }}</option>
+                {% endfor %}
+            </select>
+        </td>
+        <td><input type="submit" value="View" class="btn btn-success"></td>
+    </tr>
+</table>
+     <br>
+
+  <table class="table table-bordered">
+  <tr>
+    <th>SL NO</th>
+    <th>GROUP NAME</th>
+    <th>DATE</th>
+    <th>FILE</th>
+      <td></td>
+  </tr>
+   {% for i in v %}
+  <tr>
+    <td>{{ loop.index }}</td>
+    <td>{{ i[4] }}</td>
+    <td>{{ i[3] }}</td>
+    <td><a href="{{ i[2] }}" download class="btn btn-info">Download</a></td>
+  <td><a href="/ext_org_del_file/{{ i[0] }}" class="btn btn-danger" onclick="return confirm('Are you sure?')">Delete</a> </td>
+  </tr>
+      {% endfor %}
+  </table>
+</form>
+</body></center>
+{% endblock %}

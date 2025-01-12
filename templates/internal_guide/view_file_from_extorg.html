@@ -1,0 +1,37 @@
+{% extends 'Internal_guide/general.html' %}
+{% block body%}
+<form name="form1" method="post" action="/int_guide_view_file_frm_extorg_post">
+  <table class="table table-bordered" style="width: 400px;" align="center">
+    <tr>
+        <td>GROUP NAME</td>
+        <td>
+            <select name="select" id="select" class="form-control">
+                {% for i in d %}
+                    <option value="{{ i[0] }}">{{ i[1] }}</option>
+                {% endfor %}
+            </select>
+        </td>
+        <td>
+            <input type="submit" class="btn btn-success" value="View">
+        </td>
+    </tr>
+</table>
+<br>
+  <table class="table table-bordered">
+  <tr>
+    <th>SL NO</th>
+    <th>GROUP NAME</th>
+    <th>DATE</th>
+    <th>FILE</th>
+  </tr>
+   {% for i in v %}
+  <tr>
+    <td>{{ loop.index }}</td>
+    <td>{{ i[1] }}</td>
+    <td>{{ i[5] }}</td>
+    <td><a href="{{ i[4] }}" class="btn btn-info" download>Download</a></td>
+  </tr>
+      {% endfor %}
+  </table>
+</form>
+{% endblock %}

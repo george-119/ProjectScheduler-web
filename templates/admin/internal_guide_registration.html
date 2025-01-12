@@ -1,0 +1,55 @@
+{% extends 'admin/general.html' %}
+{% block body%}
+<body>
+<form name="form1" enctype="multipart/form-data" method="post" action="/admin_internal_guide_registration_post">
+  <center>
+      <table class="table table-bordered" style="width:500px;">
+    <tr>
+      <td>Name</td>
+      <td>
+      <input type="text" name="textfield" id="textfield" class="form-control" required></td>
+    </tr>
+    <tr>
+      <td>Email</td>
+      <td>
+      <input type="email" name="textfield2" id="textfield2" class="form-control" required></td>
+    </tr>
+    <tr>
+      <td>Phone</td>
+      <td>
+      <input type="text" name="textfield3" id="textfield3" class="form-control" required pattern="[6789][0123456789]{9}" maxlength="10"></td>
+    </tr>
+    <tr>
+      <td>Gender</td>
+      <td><input type="radio" name="radio" id="radio" value="male" checked>
+      Male
+        <input type="radio" name="radio" id="radio2" value="female">
+      Female</td>
+    </tr>
+    <tr>
+      <td>Place</td>
+      <td>
+      <input type="text" name="textfield4" id="textfield4" class="form-control" required></td>
+    </tr>
+    <tr>
+      <td>Pin</td>
+      <td>
+      <input type="text" name="textfield7" id="textfield7" class="form-control" required pattern="[123456789][0123456789]{5}" maxlength="6"></td>
+    </tr>
+    <tr>
+      <td>Pic</td>
+      <td>
+      <input type="file" name="image" id="textfield8" class="form-control" required></td>
+    </tr>
+{#    <tr>#}
+{#      <td>Password</td>#}
+{#      <td>#}
+{#      <input type="password" name="textfield6" id="textfield6"  class="form-control" required></td>#}
+{#    </tr>#}
+    <tr>
+      <td align="center" colspan="2"><input type="submit" name="button" class="btn btn-success" id="button" value="REGISTER"></td>
+    </tr>
+  </table></center>
+</form>
+</body>
+{% endblock %}
